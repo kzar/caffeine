@@ -56,7 +56,6 @@ def setup_menu():
 
 def setup_indicator():
   project_path = os.path.split(os.path.realpath(__file__))[0]
-  print project_path
   indicator = AppIndicator.Indicator.new(
     'Caffeine',
     os.path.join(project_path, "cupempty.png"),
