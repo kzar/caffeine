@@ -8,11 +8,20 @@ Simple open-source clone of the [Caffeine Mac app](http://lightheadsw.com/caffei
 
 Written in Python, tested and developed on Ubuntu 14.04LTS.
 
+
 ## Usage
 
-Clone the repository, launch the "Startup Applications" GUI and add caffeine.py. The script should then start up each time you log in.
+TODO Create a PPA release that does all this automatically (contributors welcome!)
 
-TODO Create a PPA release and have this done automatically.
+    # Clone the repository
+    sudo git clone https://github.com/kzar/caffeine /usr/src/caffeine
+    # Add script to our path
+    sudo ln /usr/src/caffeine/caffeine.py /usr/bin/caffeine.py
+    # Have Caffeine start when you login
+    ln -s /usr/src/caffeine/caffeine.py.desktop ~/.config/autostart/caffeine.py.desktop
+    # Launch it for now
+    caffeine.py &
+
 
 ## License
 

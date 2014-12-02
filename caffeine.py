@@ -1,5 +1,4 @@
 #!/usr/bin/python
-import os
 from gi.repository import Gio, GLib, Gtk, AppIndicator3 as AppIndicator
 
 idle_delay = 0
@@ -55,14 +54,13 @@ def setup_menu():
   return menu
 
 def setup_indicator():
-  project_path = os.path.split(os.path.realpath(__file__))[0]
   indicator = AppIndicator.Indicator.new(
-    'Caffeine',
-    os.path.join(project_path, "cupempty.png"),
+    "Caffeine",
+    "/usr/src/caffeine/cupempty.png",
     AppIndicator.IndicatorCategory.APPLICATION_STATUS
   )
   indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE)
-  indicator.set_attention_icon(os.path.join(project_path, "cupfull.png"))
+  indicator.set_attention_icon("/usr/src/caffeine/cupfull.png")
   indicator.set_menu(setup_menu())
   return indicator
 

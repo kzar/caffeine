@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/bin/caffeine.py
+Icon=/usr/src/caffeine/cupempty.png
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Caffeine
+Comment=Toggle to easily prevent sleep mode
+Keywords=screensaver,sleep,awake
+OnlyShowIn=GNOME;Unity;
+StartupNotify=false
