@@ -15,6 +15,8 @@ First make sure to remove [the other caffeine](https://launchpad.net/caffeine) i
 
     sudo apt-get remove caffeine --purge
     sudo add-apt-repository --remove ppa:caffeine-developers/ppa
+    sudo add-apt-repository --remove ppa:behda/ppa
+
 
 Now you can install:
 
