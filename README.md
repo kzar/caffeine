@@ -9,14 +9,21 @@ Simple open-source clone of the [Caffeine Mac app](http://lightheadsw.com/caffei
 Written in Python, tested and developed on Ubuntu 14.04LTS.
 
 
-## Usage
+## Installation
 
-Install on Ubuntu:
+First make sure to remove [the other caffeine](https://launchpad.net/caffeine) if you have installed it:
+
+    sudo apt-get remove caffeine --purge
+    sudo add-apt-repository --remove ppa:caffeine-developers/ppa
+
+Now you can install:
 
     sudo add-apt-repository ppa:kzar/caffeine
     sudo apt-get update && sudo apt-get install caffeine
     caffeine &
 
+
+## Releasing
 
 Upload a new PPA release (Only package maintainer needs to do this, assumes version 0.0.2):
 
@@ -25,6 +32,8 @@ Upload a new PPA release (Only package maintainer needs to do this, assumes vers
     cd caffeine
     debuild -S
     dput ppa:kzar/caffeine ../caffeine_0.0.2_source.changes
+    # Release for other Ubuntu releases (precise, utopic)
+    http://askubuntu.com/a/30146/336620
 
 
 ## License
