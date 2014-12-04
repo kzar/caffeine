@@ -1,3 +1,9 @@
+caffeine (0.0.3) trusty; urgency=medium
+
+  * Fixed app launch on login.
+
+ -- Dave Barker (kzar) <kzar@kzar.co.uk>  Thu, 04 Dec 2014 03:02:00 +0000
+
 caffeine (0.0.2) trusty; urgency=medium
 
   * Initial release. (Closes: #1)

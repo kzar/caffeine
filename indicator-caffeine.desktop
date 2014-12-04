@@ -10,3 +10,4 @@ Comment=Toggle to easily prevent sleep mode
 Keywords=screensaver,sleep,awake
 OnlyShowIn=GNOME;Unity;
 StartupNotify=false
+AutostartCondition=GNOME3 unless-session gnome
