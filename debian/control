@@ -1,0 +1,12 @@
+Source: caffeine
+Section: utils
+Maintainer: Dave Barker (kzar) <kzar@kzar.co.uk>
+Priority: optional
+Standards-Version: 3.9.2
+Build-Depends: debhelper
+
+Package: caffeine
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python, python-gi
+Description: Python GTK clone of Caffeine for Mac.
+ Prevent your computer from automatically going to sleep.

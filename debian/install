@@ -1,0 +1,5 @@
+README.md /usr/share/caffeine
+cupempty.png /usr/share/caffeine
+cupfull.png /usr/share/caffeine
+caffeine.desktop /etc/xdg/autostart
+caffeine /usr/bin

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Exec=/usr/bin/caffeine.py
-Icon=/usr/src/caffeine/cupempty.png
+Exec=/usr/bin/caffeine
+Icon=/usr/share/caffeine/cupempty.png
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true

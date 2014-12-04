@@ -1,0 +1,4 @@
+debian/caffeine
+debian/*.log
+debian/caffeine.substvars
+debian/files

@@ -1,0 +1,5 @@
+caffeine (0.0.2) trusty; urgency=medium
+
+  * Initial release. (Closes: #1)
+
+ -- Dave Barker (kzar) <kzar@kzar.co.uk>  Wed, 03 Dec 2014 22:51:55 +0000

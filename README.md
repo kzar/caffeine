@@ -11,16 +11,20 @@ Written in Python, tested and developed on Ubuntu 14.04LTS.
 
 ## Usage
 
-TODO Create a PPA release that does all this automatically (contributors welcome!)
+Install on Ubuntu:
 
-    # Clone the repository
-    sudo git clone https://github.com/kzar/caffeine /usr/src/caffeine
-    # Add script to our path
-    sudo ln /usr/src/caffeine/caffeine.py /usr/bin/caffeine.py
-    # Have Caffeine start when you login
-    ln -s /usr/src/caffeine/caffeine.py.desktop ~/.config/autostart/caffeine.py.desktop
-    # Launch it for now
-    caffeine.py &
+    sudo add-apt-repository ppa:kzar/caffeine
+    sudo apt-get update && sudo apt-get install caffeine
+    caffeine &
+
+
+Upload a new PPA release (Only package maintainer needs to do this, assumes version 0.0.2):
+
+    git clone https://github.com/kzar/caffeine
+    tar -zcf caffeine_0.0.2.orig.tar.gz caffeine
+    cd caffeine
+    debuild -S
+    dput ppa:kzar/caffeine ../caffeine_0.0.2_source.changes
 
 
 ## License
