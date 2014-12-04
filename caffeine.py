@@ -56,11 +56,11 @@ def setup_menu():
 def setup_indicator():
   indicator = AppIndicator.Indicator.new(
     "Caffeine",
-    "/usr/src/caffeine/cupempty.png",
+    "/usr/share/caffeine.py/cupempty.png",
     AppIndicator.IndicatorCategory.APPLICATION_STATUS
   )
   indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE)
-  indicator.set_attention_icon("/usr/src/caffeine/cupfull.png")
+  indicator.set_attention_icon("/usr/share/caffeine.py/cupfull.png")
   indicator.set_menu(setup_menu())
   return indicator
 

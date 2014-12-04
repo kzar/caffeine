@@ -1,0 +1,5 @@
+README.md /usr/share/caffeine.py
+cupempty.png /usr/share/caffeine.py
+cupfull.png /usr/share/caffeine.py
+caffeine.py.desktop /etc/xdg/autostart
+caffeine.py /usr/bin
