@@ -18,6 +18,10 @@ def restore_idle_delay():
   if idle_delay and not gsettings.get_value('idle-delay').get_uint32():
     gsettings.set_value('idle-delay', GLib.Variant.new_uint32(idle_delay))
 
+def set_idle_dim(idle_dim):
+  gsettings = Gio.Settings.new("org.gnome.settings-daemon.plugins.power")
+  gsettings.set_value('idle-dim', GLib.Variant.new_boolean(idle_dim))
+
 def toggle(item):
   global enable_button, disable_button, indicator
   if indicator.get_status() == AppIndicator.IndicatorStatus.ATTENTION:
@@ -25,14 +29,17 @@ def toggle(item):
     enable_button.show()
     disable_button.hide()
     restore_idle_delay()
+    set_idle_dim(True)
   else:
     indicator.set_status(AppIndicator.IndicatorStatus.ATTENTION)
     enable_button.hide()
     disable_button.show()
     clear_idle_delay()
+    set_idle_dim(False)
 
 def quit(item):
   restore_idle_delay()
+  set_idle_dim(True)
   Gtk.main_quit()
 
 def setup_menu():

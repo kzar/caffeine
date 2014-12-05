@@ -1,3 +1,9 @@
+caffeine (0.0.4) trusty; urgency=medium
+
+  * Disable idle screen dimming when enabled.
+
+ -- Dave Barker (kzar) <kzar@kzar.co.uk>  Fri, 05 Dec 2014 14:12:00 +0000
+
 caffeine (0.0.3) trusty; urgency=medium
 
   * Fixed app launch on login.
