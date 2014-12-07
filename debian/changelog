@@ -1,3 +1,9 @@
+caffeine (0.0.5) trusty; urgency=medium
+
+  * Tidied up the code and the menu itself.
+
+ -- Dave Barker (kzar) <kzar@kzar.co.uk>  Sun, 07 Dec 2014 00:16:00 +0000
+
 caffeine (0.0.4) trusty; urgency=medium
 
   * Disable idle screen dimming when enabled.

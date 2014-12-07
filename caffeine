@@ -2,62 +2,47 @@
 from gi.repository import Gio, GLib, Gtk, AppIndicator3 as AppIndicator
 
 idle_delay = 0
-enable_button = Gtk.MenuItem("Enable")
-disable_button = Gtk.MenuItem("Disable")
-indicator = None
 
 def clear_idle_delay():
   global idle_delay
   gsettings = Gio.Settings.new("org.gnome.desktop.session")
-  idle_delay = gsettings.get_value('idle-delay').get_uint32()
-  gsettings.set_value('idle-delay', GLib.Variant.new_uint32(0))
+  idle_delay = gsettings.get_value("idle-delay").get_uint32()
+  gsettings.set_value("idle-delay", GLib.Variant.new_uint32(0))
 
 def restore_idle_delay():
   global idle_delay
   gsettings = Gio.Settings.new("org.gnome.desktop.session")
-  if idle_delay and not gsettings.get_value('idle-delay').get_uint32():
-    gsettings.set_value('idle-delay', GLib.Variant.new_uint32(idle_delay))
+  if idle_delay and not gsettings.get_value("idle-delay").get_uint32():
+    gsettings.set_value("idle-delay", GLib.Variant.new_uint32(idle_delay))
 
 def set_idle_dim(idle_dim):
   gsettings = Gio.Settings.new("org.gnome.settings-daemon.plugins.power")
-  gsettings.set_value('idle-dim', GLib.Variant.new_boolean(idle_dim))
+  gsettings.set_value("idle-dim", GLib.Variant.new_boolean(idle_dim))
 
-def toggle(item):
-  global enable_button, disable_button, indicator
-  if indicator.get_status() == AppIndicator.IndicatorStatus.ATTENTION:
-    indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE)
-    enable_button.show()
-    disable_button.hide()
-    restore_idle_delay()
-    set_idle_dim(True)
-  else:
+def toggle(item, indicator):
+  if item.get_active():
     indicator.set_status(AppIndicator.IndicatorStatus.ATTENTION)
-    enable_button.hide()
-    disable_button.show()
     clear_idle_delay()
     set_idle_dim(False)
+  else:
+    indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE)
+    restore_idle_delay()
+    set_idle_dim(True)
 
 def quit(item):
   restore_idle_delay()
   set_idle_dim(True)
   Gtk.main_quit()
 
-def setup_menu():
-  global enable_button, disable_button
+def setup_menu(indicator):
+  def add_item(item):
+    item.show()
+    menu.append(item)
+    return item
   menu = Gtk.Menu()
-  # Enable button
-  enable_button.connect('activate', toggle)
-  enable_button.show()
-  menu.append(enable_button)
-  # Disable button
-  disable_button.connect('activate', toggle)
-  menu.append(disable_button)
-  # Quit button
-  quit_button = Gtk.MenuItem("Exit")
-  quit_button.connect('activate', quit)
-  quit_button.show()
-  menu.append(quit_button)
-  # ... and return
+  add_item(Gtk.CheckMenuItem("Enable")).connect("toggled", toggle, indicator)
+  add_item(Gtk.SeparatorMenuItem())
+  add_item(Gtk.MenuItem("Exit")).connect("activate", quit)
   return menu
 
 def setup_indicator():
@@ -68,9 +53,9 @@ def setup_indicator():
   )
   indicator.set_status(AppIndicator.IndicatorStatus.ACTIVE)
   indicator.set_attention_icon("/usr/share/caffeine/cupfull.png")
-  indicator.set_menu(setup_menu())
+  indicator.set_menu(setup_menu(indicator))
   return indicator
 
 if __name__ == "__main__":
-  indicator = setup_indicator()
+  setup_indicator()
   Gtk.main()
