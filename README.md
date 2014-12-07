@@ -22,7 +22,7 @@ Now you can install:
 
     sudo add-apt-repository ppa:kzar/caffeine
     sudo apt-get update && sudo apt-get install caffeine
-    caffeine &
+    nohup caffeine &
 
 
 ## Releasing
