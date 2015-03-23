@@ -1,3 +1,9 @@
+caffeine (0.0.6) trusty; urgency=medium
+
+  * Allow middle-click toggling for Caffeine.
+
+ -- Dave Barker (kzar) <kzar@kzar.co.uk>  Mon, 23 Mar 2015 14:46:00 +0000
+
 caffeine (0.0.5) trusty; urgency=medium
 
   * Tidied up the code and the menu itself.

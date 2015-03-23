@@ -40,7 +40,9 @@ def setup_menu(indicator):
     menu.append(item)
     return item
   menu = Gtk.Menu()
-  add_item(Gtk.CheckMenuItem("Enable")).connect("toggled", toggle, indicator)
+  toggle_button = add_item(Gtk.CheckMenuItem("Enable"))
+  toggle_button.connect("toggled", toggle, indicator)
+  indicator.set_secondary_activate_target(toggle_button)
   add_item(Gtk.SeparatorMenuItem())
   add_item(Gtk.MenuItem("Exit")).connect("activate", quit)
   return menu
